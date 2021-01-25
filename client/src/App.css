@@ -6,3 +6,29 @@
   margin-top: 190px;
   margin-left: 490px;
 }
+.home{
+  padding-top: 100px;
+  height:700px;
+  background-color: bisque;
+}
+.msearchBar{
+
+  width: 80%;
+  margin-left: 150px;
+}
+.carosel{
+  padding-top: 100px;
+}
+.homeTitle{
+  padding-top: 100px;
+}
+.item{
+  margin-left: 1011px;
+  margin-right: 10px;
+}
+@font-face {
+  font-family: "SpicyPumpkin";
+  src: local("SpicyPumpkin"),
+    url("./fonts/Spicy_pumpkin.ttf") format("truetype");
+  font-weight: normal;
+}

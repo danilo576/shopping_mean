@@ -1,30 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
-import e from 'cors';
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-  const { email, password } = formData;
-  // [e,target.name] ---> iz e.target polja izvlaci string vrednost name-a i postavlja je kao prop
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const toSend = {
-      email,
-      password,
-    };
-    console.log(toSend);
-  };
   return (
     <div className='kontejner2'>
       <MDBContainer size='sm' className='kontejner2'>
         <MDBRow>
           <MDBCol md='6'>
-            <form onSubmit={onSubmit}>
+            <form>
               <p className='h5 text-center mb-4'>Sign in</p>
               <div className='grey-text'>
                 <MDBInput
@@ -35,9 +18,6 @@ const Login = () => {
                   validate
                   error='wrong'
                   success='right'
-                  name='email'
-                  value={email}
-                  onChange={onChange}
                 />
                 <MDBInput
                   label='Type your password'
@@ -45,13 +25,10 @@ const Login = () => {
                   group
                   type='password'
                   validate
-                  name='password'
-                  value={password}
-                  onChange={onChange}
                 />
               </div>
               <div className='text-center'>
-                <MDBBtn type='submit'>Login</MDBBtn>
+                <MDBBtn>Login</MDBBtn>
               </div>
             </form>
           </MDBCol>

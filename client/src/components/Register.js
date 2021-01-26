@@ -12,20 +12,15 @@ import {
 const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email1: '',
-    email2: '',
+    email: '',
     password: '',
   });
-  const { name, email1, email2, password } = formData;
+  const { name, email, password } = formData;
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = (e) => {
     e.preventDefault();
-    const toSend = { name, email1, password };
-    if (email1 !== email2) {
-      alert('Emails must be same');
-      return;
-    }
+    const toSend = { name, email, password };
     console.log(toSend);
   };
   return (
@@ -55,18 +50,7 @@ const Register = () => {
                       error='wrong'
                       success='right'
                       name='email1'
-                      value={email1}
-                      onChange={onChange}
-                    />
-                    <MDBInput
-                      label='Confirm your email'
-                      icon='exclamation-triangle'
-                      group
-                      type='text'
-                      error='wrong'
-                      success='right'
-                      name='email2'
-                      value={email2}
+                      value={email}
                       onChange={onChange}
                     />
                     <MDBInput

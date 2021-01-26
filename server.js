@@ -1,31 +1,33 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
 const app = express();
-const cors = require('cors');
-const bodyParser = require('body-parser');
-var mongo = require('mongodb');
 
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// Inicijalni Middleware
+app.use(express.json());
 
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/mydb";
+// Definisanje ruta
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
-MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    console.log("Database created!");
-    db.close();
-  });
-
-  MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db("mydb");
-    var myobj = { name: "Company Inc", address: "Highway 37" };
-    dbo.collection("customers").insertOne(myobj, function(err, res) {
-      if (err) throw err;
-      console.log("1 document inserted");
-      db.close();
+const connectDB = async () => {
+  try {
+    await mongoose.connect('mongodb://127.0.0.1:27017/Shopping', {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true,
     });
+
+    console.log('MongoDB Connected...');
+  } catch (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+};
+
+// Povezivanje na bazu
+connectDB();
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));

@@ -1,18 +1,21 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const trzniCentri = require('./routes/trzniCentri');
-const logger = require('./middleware/logger');
+const poveziBazu = require('./config/db');
 
 // Ucitava mi variable iz config fajla
 dotenv.config({ path: './config/config.env' });
 
+// U MongoDB Compas za uspostavljanje veze nalepi string koji se nalazi u folderu /config/config.env --> MONGO_URL
+poveziBazu();
+
 const app = express();
 
-//Na svaki moj napravljen req se poziva ovaj middlwware
-app.use(logger);
+// Body parser --> req.body parsuje, inace je undefined
+app.use(express.json());
 
 // Montiram rute, sve rute koje dolazi iz uvedenog fajla imace prefiks prvog parametra
 app.use('/api/trzniCentri', trzniCentri);
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server is listening on port ${PORT}`));

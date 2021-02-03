@@ -1,24 +1,74 @@
-exports.getTrzniCentri = (req, res, next) => {
-  res.status(200).json({ succes: true, msg: 'Prikazujem sve trzne centre' });
+const TrzniCentar = require('../models/TrzniCentar');
+
+exports.getTrzniCentri = async (req, res, next) => {
+  try {
+    const centri = await TrzniCentar.find();
+    res.status(200).json({
+      success: true,
+      brojCentara: centri.length,
+      data: centri,
+    });
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+    });
+  }
 };
-exports.getTrzniCentar = (req, res, next) => {
-  res.status(200).json({
-    success: true,
-    msg: `Prikazujem trzni centar sa id: ${req.params.id}`,
-  });
+exports.getTrzniCentar = async (req, res, next) => {
+  try {
+    const centar = await TrzniCentar.findById(req.params.id);
+    if (!centar) {
+      return res.status(400).json({ success: false });
+    }
+    res.status(200).json({
+      succes: true,
+      data: centar,
+    });
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+    });
+  }
 };
-exports.createTrzniCentar = (req, res, next) => {
-  res.status(200).json({ success: true, msg: 'Kreiram trzni centar' });
+exports.createTrzniCentar = async (req, res, next) => {
+  try {
+    const centar = await TrzniCentar.create(req.body);
+    res.status(201).json({
+      success: true,
+      data: centar,
+    });
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+    });
+  }
 };
-exports.updateTrzniCentar = (req, res, next) => {
-  res.status(200).json({
-    success: true,
-    msg: `Update trzni centar sa id: ${req.params.id}`,
-  });
+exports.updateTrzniCentar = async (req, res, next) => {
+  try {
+    const centar = await TrzniCentar.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    if (!centar) {
+      return res.status(400).json({ succes: false });
+    }
+    res.status(200).json({ success: true, data: centar });
+  } catch (err) {
+    res.status(400).json({ success: false });
+  }
 };
-exports.deleteTrzniCentar = (req, res, next) => {
-  res.status(200).json({
-    succes: true,
-    msg: `Brisem trzni centar sa id: ${req.params.id}`,
-  });
+exports.deleteTrzniCentar = async (req, res, next) => {
+  try {
+    const centar = await TrzniCentar.findByIdAndDelete(req.params.id);
+    if (!centar) {
+      return res.status(400).json({ success: false });
+    }
+    res.status(200).json({ success: true, data: {} });
+  } catch (err) {
+    res.status(400).json({ success: false });
+  }
 };

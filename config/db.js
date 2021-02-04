@@ -8,7 +8,9 @@ const konekcija = async () => {
     useUnifiedTopology: true,
   });
 
-  console.log(`MongoDB Povezan na hostu: ${conn.connection.host}`);
+  console.log(
+    `MongoDB Povezan na hostu: ${conn.connection.host}`.cyan.underline
+  );
 };
 
 module.exports = konekcija;

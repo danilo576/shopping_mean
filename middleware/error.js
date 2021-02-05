@@ -7,7 +7,7 @@ const errorHandler = (err, req, res, next) => {
   //Ovo radim da bih uzeo poruku iz greske koju baca ako je pravilno formatiran ObjectId ali je rezultat null
   error_tmp.message = err.message;
   if (err.name === 'CastError') {
-    const poruka = `Nije pronadjen trzni centar sa id: ${err.value}`;
+    const poruka = `Nije pronadjen resurs sa id: ${err.value}`;
     error_tmp = new Greska(poruka, 404);
   }
   // Ukoliko pokusam u bazu da kreiram po 2. put property koji je pre ovoga imao 'unique' vrednost

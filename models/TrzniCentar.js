@@ -31,4 +31,4 @@ const TrzniCentarSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('trznicentar', TrzniCentarSchema);
+module.exports = mongoose.model('TrzniCentar', TrzniCentarSchema);

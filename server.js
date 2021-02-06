@@ -6,7 +6,7 @@ const poveziBazu = require('./config/db');
 const errorHandler = require('./middleware/error');
 require('colors');
 
-// Ucitava mi variable iz config fajla
+// Ucitava mi variable iz config fajla u process.env
 dotenv.config({ path: './config/config.env' });
 
 // U MongoDB Compas za uspostavljanje veze nalepi string koji se nalazi u folderu /config/config.env --> MONGO_URL

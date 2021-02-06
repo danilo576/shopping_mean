@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const trzniCentri = require('./routes/trzniCentri');
 const proizvodi = require('./routes/proizvodi');
+const admini = require('./routes/admini');
 const poveziBazu = require('./config/db');
 const errorHandler = require('./middleware/error');
 require('colors');
@@ -20,6 +21,7 @@ app.use(express.json());
 // Montiram rute, sve rute koje dolazi iz uvedenog fajla imace prefiks prvog parametra
 app.use('/api/trzniCentri', trzniCentri);
 app.use('/api/proizvodi', proizvodi);
+app.use('/api/admini', admini);
 
 app.use(errorHandler);
 

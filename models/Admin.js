@@ -6,6 +6,7 @@ const AdminSchema = new mongoose.Schema({
     required: [true, 'Mora postojati trzni centar za ovog admina'],
     // Stavljam unique jer u jednom trenutku trzni centar moze imati za vlasnika samo jednog admina
     unique: true,
+    ref: 'TrzniCentar',
   },
   email: {
     type: String,

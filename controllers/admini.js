@@ -11,7 +11,8 @@ exports.createAdmin = asyncHandler(async (req, res, next) => {
 });
 
 exports.getAllAdmins = asyncHandler(async (req, res, next) => {
-  const admini = await Admin.find();
+  //Velika prednost populate f-je je sto ce id trznogCentra kod Admina zameniti dokumentom za taj trzni centar i tako predstaviti sve njegove vrednosti
+  const admini = await Admin.find().populate('trzniCentar');
   res.status(200).json({
     success: true,
     data: admini,

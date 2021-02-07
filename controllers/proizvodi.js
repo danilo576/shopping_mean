@@ -22,7 +22,11 @@ exports.getProizvodi = asyncHandler(async (req, res, next) => {
     (match) => `$${match}`
   );
 
-  query = Proizvod.find(JSON.parse(queryString));
+  //Populate vrsi replace id trznogCentra sa tim objektom kojeg referencira s tim sto zelim samo naziv i lokaciju za taj trzniCentar
+  query = Proizvod.find(JSON.parse(queryString)).populate({
+    path: 'trzniCentar',
+    select: 'naziv lokacija',
+  });
 
   // Npr u query-u stavim select=naziv,kolicina  ---> vratice mi sveproizvode samo sa tim property-ima
   if (req.query.select) {

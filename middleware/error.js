@@ -1,8 +1,8 @@
 const Greska = require('../utils/greska');
 
 const errorHandler = (err, req, res, next) => {
-  console.log(err);
-  console.log(err.name.magenta.bold.underline);
+  // console.log(err);
+  // console.log(err.name.magenta.bold.underline);
   let error_tmp = { ...err };
   //Ovo radim da bih uzeo poruku iz greske koju baca ako je pravilno formatiran ObjectId ali je rezultat null
   error_tmp.message = err.message;

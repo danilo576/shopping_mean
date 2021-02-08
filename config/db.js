@@ -9,7 +9,8 @@ const konekcija = async () => {
   });
 
   console.log(
-    `MongoDB Povezan na hostu: ${conn.connection.host}`.cyan.underline
+    `MongoDB povezan na bazu --->"${conn.connection.name}", otvori MongoDBCompass`
+      .yellow.inverse
   );
 };
 

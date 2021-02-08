@@ -19,6 +19,10 @@ const ProizvodSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Unesite kolicinu proizvoda'],
   },
+  slika: {
+    type: String,
+    default: 'no-photo.jpg',
+  },
 });
 
 // Ovim ogranicavam da u jednom trznom centru ne mogu postojati 2 proizvoda sa istim imenom

@@ -29,6 +29,10 @@ const TrzniCentarSchema = new mongoose.Schema({
       'Morate da unesete ispravnu email adresu',
     ],
   },
+  slika: {
+    type: String,
+    default: 'no-photo.jpg',
+  },
 });
 
 module.exports = mongoose.model('TrzniCentar', TrzniCentarSchema);

@@ -5,6 +5,7 @@ const {
   createTrzniCentar,
   updateTrzniCentar,
   deleteTrzniCentar,
+  uploadSlika,
 } = require('../controllers/trzniCentri');
 const router = express.Router();
 
@@ -16,5 +17,7 @@ router
   .get(getTrzniCentar)
   .put(updateTrzniCentar)
   .delete(deleteTrzniCentar);
+
+router.route('/:id/uploadSlika').put(uploadSlika);
 
 module.exports = router;

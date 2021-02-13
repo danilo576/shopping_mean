@@ -1,1 +1,1 @@
-## Create shopping app using MERN
+## Create shopping app using MEAN

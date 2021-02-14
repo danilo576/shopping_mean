@@ -285,7 +285,7 @@ app.post('/resetpass', (req, res) => {
   );
 });
 
-//Urosev controller za ucenika
+
 let UcenikController = {
   all: async (req, res) => {
     let sviUcenici = await Ucenik.find();

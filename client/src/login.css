@@ -3,7 +3,7 @@ html {
   height: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-image: linear-gradient(rgb(19, 179, 171), rgb(218, 230, 107));
+  background-image: linear-gradient(rgb(33, 149, 111), rgb(258, 230, 107));
 }
 
 .card-container.card {

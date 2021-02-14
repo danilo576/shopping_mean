@@ -1,0 +1,215 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.visina {
+  height: 100%;
+}
+.NAVMT {
+  /* background-color: orange; */
+  /* margin-top: 50px; */
+}
+.SIDEBAR {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.Razred {
+  display: flex;
+  flex-direction: row;
+}
+.RazredTekst {
+  margin: 26px 20px 0px 0px;
+}
+.PAGECONTENT {
+  margin-left: 25%;
+}
+/* .MT{
+  margin-top: 70px;
+
+} */
+.MT1 {
+  margin-top: 70px;
+}
+.centar {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.vladanjeOcena {
+  color: red;
+}
+.datumfix {
+  width: 150px;
+}
+.head {
+  border: 3px solid black;
+}
+/*<a href="#" className="list-group-item">Potrebno je izvrsiti uplatu za trecu ratu za ekskurziju u iznosu od 7780rsd <span className="glyphicon glyphicon-calendar">2.4.2020.</span> </a>
+*/
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important;
+}
+
+.animated-header {
+  background: #000;
+  /* position: absolute; */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.animated-header:before {
+  /* animation: show-background 60s .5s cubic-bezier(0,1,.5,1) forwards; */
+  /* background: url(https://cssanimation.rocks/images/random/space2.jpg) repeat center; */
+  background-size: cover;
+  content: '';
+  opacity: 0;
+  /* height: 125vh; */
+  position: absolute;
+  left: -10%;
+  top: -10%;
+  /* width: 125vw; */
+  /* margin-top:150px; */
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #aaa;
+  font-size: 48px;
+  display: none;
+}
+
+.js-loading .loading {
+  display: block;
+}
+
+.earth {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+}
+
+.moon {
+  animation: spin 30s linear infinite;
+  width: 70px;
+  height: 80px;
+  position: absolute;
+  top: calc(50% - 170px);
+  left: calc(50% - 170px);
+  transform-origin: 170px 170px;
+}
+
+.earth img,
+.moon img {
+  animation: show-on-load 1s 0.5s cubic-bezier(0, 1.6, 0.6, 1) forwards;
+  border-radius: 50%;
+  opacity: 0;
+  width: 100%;
+  box-shadow: 0 0 12em 1em rgba(110, 140, 200, 0.6);
+}
+
+.moon img {
+  animation: fade-in 2s 1s cubic-bezier(0, 1.5, 1, 1) forwards,
+    spin 30s linear reverse infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes show-background {
+  0% {
+    opacity: 0;
+    transform: none;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes show-on-load {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.cards {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 28%;
+  border-radius: 5px;
+  margin-left: 36%;
+}
+
+.cards:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.slika {
+  border-radius: 5px 5px 0 0;
+}
+
+.containers {
+  padding: 2px 16px;
+}
+
+.levidesni {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.levi {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.desni {
+  width: 70%;
+  margin-top: 20px;
+}
+.redDatum {
+  color: red;
+}
+
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-react-calendars/styles/material.css';
